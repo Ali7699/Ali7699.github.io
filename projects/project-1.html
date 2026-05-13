@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optical Encoder — Ali Mohamed Aly Mahmoud</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <nav>
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">Ali Mohamed Aly Mahmoud</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../my-work.html" class="active">My Work</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <!-- ─── Project Hero ───────────────────────────────────────── -->
+    <div class="container">
+      <div class="project-hero">
+      <a href="../my-work.html" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        All Works
+      </a>
+
+        <div class="project-meta-row">
+          <span class="mono">Robotics</span>
+          <span class="mono">·</span>
+          <span class="mono">May 2025</span>
+        </div>
+
+        <h1>Optical Encoder from scratch</h1>
+      </div>
+    </div>
+
+    <!-- ─── Project Body ────────────────────────────────────────── -->
+    <div class="container">
+      <div class="project-body">
+        <!-- Main content column -->
+        <article class="project-content">
+          <h2>Overview</h2>
+          <p>
+            <!--
+            Write your project description here. What is it? Why did you build it?
+            What was the goal? A few paragraphs is perfect.
+          -->
+            This Project is a subset of my Brialle Board startup. Part of the
+            startup requires numeroud dc motors, so the need for cheap feedback
+            that fits my specific use case is necessary: Low Notch counts per
+            rotation, very cheap, and simple
+          </p>
+
+          <!--
+          ── IMAGE GALLERY ──────────────────────────────────────────
+          Add your images inside .gallery. Rules:
+          • If there's an odd number of images, the first one spans full width automatically.
+          • Use good filenames: assets/images/rover-chassis.jpg
+          • Aim for 4–6 images for a good-looking layout.
+          ────────────────────────────────────────────────────────────
+        -->
+          <div class="gallery">
+            <!--
+            Replace each placeholder src with your actual image paths:
+            <img src="../assets/images/rover-top.jpg" alt="Top view of rover chassis" />
+          -->
+            <img
+              src="../assets/images/Project1/CircuitDiagram.jpg"
+              alt="circuit used"
+            />
+            <img
+              src="../assets/images/Project1/encoder.jpeg"
+              alt="circuit used"
+            />
+            <img
+              src="../assets/images/Project1/circuit.jpeg"
+              alt="circuit used"
+            />
+          </div>
+
+          <h2>How it works</h2>
+          <p>
+            To encode position, a beam of IR Light is interuppted. to dtect the
+            light, a phototransistor is used. A photo transistor amplifies the
+            change to a measurable voltage, but has very slow rise time. So, the
+            signal is sped up using a comparter circuit.
+          </p>
+
+          <h2>Results</h2>
+          <p>
+            In the time I've worked on it, I was able to consistently count
+            interupts at low speeds, improvments are necessary to make the
+            design more robust.
+          </p>
+
+          <!--
+          ── YOUTUBE VIDEO ──────────────────────────────────────────
+          To embed a YouTube video:
+          1. Go to the YouTube video
+          2. Click Share → Embed
+          3. Copy the src URL (looks like https://www.youtube.com/embed/VIDEOID)
+          4. Paste it into the iframe src below
+          5. Delete this comment block once you're done
+
+          If you have NO video, just delete the .video-wrap block entirely.
+          ────────────────────────────────────────────────────────────
+        -->
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/Nq_apchJxI0"
+              title="Project demo video"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            >
+            </iframe>
+          </div>
+
+
+          <div class="report-callout">
+            <div>
+              <p class="report-callout-title">Demo Video</p>
+              <p>Watch the project in action on YouTube.</p>
+            </div>
+            <a
+              href="https://www.youtube.com/watch?v=Nq_apchJxI0"
+              target="_blank"
+              class="report-callout-link"
+            >
+              Watch →
+            </a>
+          </div>
+        </article>
+
+
+
+
+
+
+        <!-- Sidebar -->
+        <aside class="project-sidebar">
+          <div class="project-sidebar-section">
+            <span class="mono">Completed</span>
+            <p>May 2025</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Category</span>
+            <p>Analog electronics &amp; Embedded Systems</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Tech used</span>
+            <div style="margin-top: 0.5rem">
+              <span class="tag">Oscillscope</span>
+              <span class="tag">Analog electronics</span>
+              <span class="tag">STM32</span>
+            </div>
+          </div>
+
+          <!--
+          Add a GitHub link if relevant:
+        -->
+          
+        </aside>
+      </div>
+    </div>
+
+    <footer>
+    <div class="footer-inner">
+      <p>© 2025 Ali Mohamed Aly Mahmoud</p>
+      <div class="footer-links">
+        <a href="https://github.com/Ali7699" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ali-mahmoud-457881351/" target="_blank">LinkedIn</a>
+        <a href="mailto:ali.m.mahmoud48@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>
