@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Optical Encoder — Ali Mohamed Aly Mahmoud</title>
+    <title>Digital calculator — Ali Mohamed Aly Mahmoud</title>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
@@ -103,27 +103,42 @@
             achieved.
           </p>
 
-          
           <div class="gallery">
             <!--
             Replace each placeholder src with your actual image paths:
             <img src="../assets/images/rover-top.jpg" alt="Top view of rover chassis" />
           -->
-            <img src="../assets/images/project2Logisim/StandardDesign.jpg" alt="circuit used" data-caption="Standard design- Every 2's finder has a full adder ic, making the design require 4 full adders" />
-            <img src="../assets/images/project2Logisim/SoftwareBestDesign.jpg" alt="circuit used" data-caption="My optimised design" />
+            <img
+              src="../assets/images/project2Logisim/StandardDesign.jpg"
+              alt="circuit used"
+              data-caption="Standard design- Every 2's finder has a full adder ic, making the design require 4 full adders"
+            />
+            <img
+              src="../assets/images/project2Logisim/SoftwareBestDesign.jpg"
+              alt="circuit used"
+              data-caption="My optimised design"
+            />
           </div>
-            <h2>Hardware implmentation</h2>
+          <h2>Hardware implmentation</h2>
           <p>
-            The main issue with implementing using a breadboard for such a large circuit is connectivity. Luckily, My optimised design minimized connections. I was deliberate to use the thin jumper which has a stronger connection and made debugging easier. In the end, I achieved a streamlined adder/subber that was functional for 2 bits.  
+            The main issue with implementing using a breadboard for such a large
+            circuit is connectivity. Luckily, My optimised design minimized
+            connections. I was deliberate to use the thin jumper which has a
+            stronger connection and made debugging easier. In the end, I
+            achieved a streamlined adder/subber that was functional for 2 bits.
           </p>
-            <div class="gallery">
+          <div class="gallery">
             <!--
             Replace each placeholder src with your actual image paths:
             <img src="../assets/images/rover-top.jpg" alt="Top view of rover chassis" />
           -->
-            <img src="../assets/images/project2Logisim/hardware.jpeg" alt="circuit used" data-caption="The Input ports are labeled here in the hardware impmentation" />
+            <img
+              src="../assets/images/project2Logisim/hardware.jpeg"
+              alt="circuit used"
+              data-caption="The Input ports are labeled here in the hardware impmentation"
+            />
           </div>
-          
+
           <div class="video-wrap">
             <iframe
               src="https://www.youtube.com/embed/Mm76PcNE42Y"
@@ -158,10 +173,11 @@
           </div>
           <h2>Results</h2>
           <p>
-            This project deepened my understanding of digital hardware design. It was a strong introduction into the world of computer design
+            This project deepened my understanding of digital hardware design.
+            It was a strong introduction into the world of computer design
           </p>
         </article>
-          
+
         <!-- Sidebar -->
         <aside class="project-sidebar">
           <div class="project-sidebar-section">
@@ -204,27 +220,34 @@
     </footer>
 
     <script src="../js/main.js"></script>
+
     <!-- Lightbox -->
-<div class="lightbox-overlay" id="lightbox">
-  <img id="lightbox-img" src="" alt="" />
-  <p class="lightbox-caption" id="lightbox-caption"></p>
-</div>
+    <div class="lightbox-overlay" id="lightbox">
+      <img id="lightbox-img" src="" alt="" />
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
 
-<script>
-  const overlay = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lightbox-img');
-  const lbCaption = document.getElementById('lightbox-caption');
+    <script>
+      const overlay = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lightbox-img");
+      const lbCaption = document.getElementById("lightbox-caption");
 
-  document.querySelectorAll('.gallery img').forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', () => {
-      lbImg.src = img.src;
-      lbCaption.textContent = img.dataset.caption || '';
-      overlay.classList.add('active');
-    });
-  });
+      document.querySelectorAll(".gallery img").forEach((img) => {
+        img.style.cursor = "zoom-in";
+        img.addEventListener("click", () => {
+          lbImg.src = img.src;
+          lbCaption.textContent = img.dataset.caption || "";
+          overlay.classList.add("active");
+        });
+      });
 
-  overlay.addEventListener('click', () => overlay.classList.remove('active'));
-</script>
+      overlay.addEventListener("click", () =>
+        overlay.classList.remove("active"),
+      );
+    </script>
+    <!-- Lightbox -->
+
+
+
   </body>
 </html>
