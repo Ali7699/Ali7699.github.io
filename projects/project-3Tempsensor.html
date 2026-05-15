@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temprature sensor — Ali Mohamed Aly Mahmoud</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">Ali Mohamed Aly Mahmoud</a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../my-work.html" class="active">My Work</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ─── Project Hero ───────────────────────────────────────── -->
+    <div class="container">
+      <div class="project-hero">
+        <a href="../my-work.html" class="back-link">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          All Works
+        </a>
+
+        <div class="project-meta-row">
+          <span class="mono">Analog Electronics</span>
+          <span class="mono">·</span>
+          <span class="mono">Dec 2025</span>
+        </div>
+
+        <h1>RTD temprature sensor</h1>
+      </div>
+    </div>
+
+    <!-- ─── Project Body ────────────────────────────────────────── -->
+    <div class="container">
+      <div class="project-body">
+        <!-- Main content column -->
+        <article class="project-content">
+          <h2>Overview</h2>
+          <p>
+           The goal of this project was to design an accurate thermometer by processing the signal of Resistance temperature detector RTD. 
+          </p>
+
+          <h2>Wheatstone bridge design </h2>
+          <p>
+            An RTD sensor uses a reliable metal, usually platinum, which has a linear change in resistance, and very well documented temperature coefficients. The sensor used in this project was the pt100. Now to convert this very sensitive change in resistance into voltage, a Wheatstone bridge was used, and it was balanced at the minimum temperature. Then, we calculate other resistance values, based on the minimum excitation current to limit self heating error. 
+          </p>
+         <h2>Instrumentation amplifier design </h2>
+          <p>
+            The end result, is I was able to lean the design to only 7 ics on
+            just one breadboard, Whereas a standard design might use double
+            that. The trade-off was, The design was less modular for increasing
+            bit count. But the goal, of optimizing logic circuitry, was
+            achieved.
+          </p>
+          <p>
+            The fix is using an instrumentation amplifier, which delegates all the amplification to the initial followers, then the differential section just subtracts the signal. This minimizes common mode gain and makes it possible to use external op amps despite non idealities, rather than an off the shelf instrumentation IC.
+          </p>
+          <p>
+            The resistor values of the differential section where meticulously matched to .1% tolerance using a multimeter, and by checking many 100k resistors. 
+          </p>
+
+          <div class="gallery">
+            <!--
+            Replace each placeholder src with your actual image paths:
+            <img src="../assets/images/rover-top.jpg" alt="Top view of rover chassis" />
+          -->
+            <img
+              src="../assets/images/project3RTD/Calcultion.jpg.jpeg"
+              alt="circuit used"
+              data-caption="Calculation for Wheastone bridge and Instrumentation"
+            />
+           
+          </div>
+          <h2>Hardware implmentation</h2>
+          <p>
+            The final step was to trivially code a simple Arduino script which converted the amplifiers voltage and displayed it on the lcd. Initially, I found an error of 5c between it and my multimeters thermometer, but through meticulous calibration it measured with minimal 1c error
+          </p>
+          <div class="gallery">
+            <img
+              src="../assets/images/project3RTD/Calibration.jpeg"
+              alt="circuit used"
+              data-caption="A 5c error prior to calibration "
+            />
+          </div>
+
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/ObOR98M4vQo"
+              title="Project demo video"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            >
+            </iframe>
+          </div>
+
+          <div class="report-callout">
+            <div>
+              <p class="report-callout-title">Demo Video</p>
+              <p>Watch the project in action on YouTube.</p>
+            </div>
+            <a
+              href="https://youtube.com/shorts/ObOR98M4vQo"
+              target="_blank"
+              class="report-callout-link"
+            >
+              Watch →
+            </a>
+          </div>
+          <h2>Results</h2>
+          <p>
+            This project demonstrated to me the meticlousness of analog circuits. Intially, I couldnt get the amplifier to work at all because of resistance value diffrence. op amp circuits require careful connection and component choice, and I was exhillirated when it worked perfectly. I wish to pursue this more. 
+          </p>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="project-sidebar">
+          <div class="project-sidebar-section">
+            <span class="mono">Completed</span>
+            <p>Dec 2026</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Category</span>
+            <p>Analog electronics</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Tech used</span>
+            <div style="margin-top: 0.5rem">
+              <span class="tag">Arduino IDE</span>
+              <span class="tag">lm324 and pt100</span>
+            </div>
+          </div>
+
+          <!--
+          Add a GitHub link if relevant:
+        --></aside>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <p>© 2025 Ali Mohamed Aly Mahmoud</p>
+        <div class="footer-links">
+          <a href="https://github.com/Ali7699" target="_blank">GitHub</a>
+          <a
+            href="https://www.linkedin.com/in/ali-mahmoud-457881351/"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a href="mailto:ali.m.mahmoud48@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox">
+      <img id="lightbox-img" src="" alt="" />
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+
+    <script>
+      const overlay = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lightbox-img");
+      const lbCaption = document.getElementById("lightbox-caption");
+
+      document.querySelectorAll(".gallery img").forEach((img) => {
+        img.style.cursor = "zoom-in";
+        img.addEventListener("click", () => {
+          lbImg.src = img.src;
+          lbCaption.textContent = img.dataset.caption || "";
+          overlay.classList.add("active");
+        });
+      });
+
+      overlay.addEventListener("click", () =>
+        overlay.classList.remove("active"),
+      );
+    </script>
+    <!-- Lightbox -->
+
+
+
+  </body>
+</html>
