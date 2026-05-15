@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optical Encoder — Ali Mohamed Aly Mahmoud</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">Ali Mohamed Aly Mahmoud</a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../my-work.html" class="active">My Work</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ─── Project Hero ───────────────────────────────────────── -->
+    <div class="container">
+      <div class="project-hero">
+        <a href="../my-work.html" class="back-link">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          All Works
+        </a>
+
+        <div class="project-meta-row">
+          <span class="mono">Digital Electronics</span>
+          <span class="mono">·</span>
+          <span class="mono">May 2024</span>
+        </div>
+
+        <h1>Logic Gate calculator</h1>
+      </div>
+    </div>
+
+    <!-- ─── Project Body ────────────────────────────────────────── -->
+    <div class="container">
+      <div class="project-body">
+        <!-- Main content column -->
+        <article class="project-content">
+          <h2>Overview</h2>
+          <p>
+            <!--
+            Write your project description here. What is it? Why did you build it?
+            What was the goal? A few paragraphs is perfect.
+          -->
+            The goal of this project was to create an adder and subtractor for
+            any two 3 bit numbers, with 2 bits and a parity bit, with as little
+            Logic gates as possible in my design. The value of this is gaining a
+            deeper understanding of Boolean logic and computer hardware design.
+          </p>
+
+          <!--
+          ── IMAGE GALLERY ──────────────────────────────────────────
+          Add your images inside .gallery. Rules:
+          • If there's an odd number of images, the first one spans full width automatically.
+          • Use good filenames: assets/images/rover-chassis.jpg
+          • Aim for 4–6 images for a good-looking layout.
+          ────────────────────────────────────────────────────────────
+        -->
+
+          <h2>Software design</h2>
+          <p>
+            The scope of this project, is using the 7483 full bit adder and
+            extending it to have subtraction. Now, there is a prexisting
+            standard design for the adder and subtractor, which uses over laying
+            full adders, requiring n full adders per n bits. Because this scope
+            was only 2 bits, I was able to optimize it to using only 1 full
+            adder, and minimal ics. The key optimizations used were:
+          </p>
+          <ul>
+            <li>
+              Per bit compliments, instead of a parametric 2’s compliment. The
+              2’s compliment for 2 bits is a simple equal for the 0’s bit, and
+              just an xor for the second bit. This was computed using a K map.
+            </li>
+            <li>
+              Using the second have of the full adder independently of the
+              first- essentially getting 2 full adders
+            </li>
+            <li>Carry and sign logic were mixed to minimize gates usage</li>
+            <li>
+              Using NAND as NOR for the one OR gate required in the design, and
+              in general only using XOR and AND to minimize extra IC’s
+            </li>
+          </ul>
+          <p>
+            The end result, is I was able to lean the design to only 7 ics on
+            just one breadboard, Whereas a standard design might use double
+            that. The trade-off was, The design was less modular for increasing
+            bit count. But the goal, of optimizing logic circuitry, was
+            achieved.
+          </p>
+
+          
+          <div class="gallery">
+            <!--
+            Replace each placeholder src with your actual image paths:
+            <img src="../assets/images/rover-top.jpg" alt="Top view of rover chassis" />
+          -->
+            <img src="../assets/images/project2Logisim/StandardDesign.jpg" alt="circuit used" data-caption="Standard design- Every 2's finder has a full adder ic, making the design require 4 full adders" />
+            <img src="../assets/images/project2Logisim/SoftwareBestDesign.jpg" alt="circuit used" data-caption="My optimised design" />
+          </div>
+            <h2>Hardware implmentation</h2>
+          <p>
+            The main issue with implementing using a breadboard for such a large circuit is connectivity. Luckily, My optimised design minimized connections. I was deliberate to use the thin jumper which has a stronger connection and made debugging easier. In the end, I achieved a streamlined adder/subber that was functional for 2 bits.  
+          </p>
+            <div class="gallery">
+            <!--
+            Replace each placeholder src with your actual image paths:
+            <img src="../assets/images/rover-top.jpg" alt="Top view of rover chassis" />
+          -->
+            <img src="../assets/images/project2Logisim/hardware.jpeg" alt="circuit used" data-caption="The Input ports are labeled here in the hardware impmentation" />
+          </div>
+          
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/Mm76PcNE42Y"
+              title="Project demo video"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            >
+            </iframe>
+          </div>
+
+          <div class="report-callout">
+            <div>
+              <p class="report-callout-title">Demo Video</p>
+              <p>Watch the project in action on YouTube.</p>
+            </div>
+            <a
+              href="https://www.youtube.com/watch?v=Mm76PcNE42Y"
+              target="_blank"
+              class="report-callout-link"
+            >
+              Watch →
+            </a>
+          </div>
+          <h2>Results</h2>
+          <p>
+            This project deepened my understanding of digital hardware design. It was a strong introduction into the world of computer design
+          </p>
+        </article>
+          
+        <!-- Sidebar -->
+        <aside class="project-sidebar">
+          <div class="project-sidebar-section">
+            <span class="mono">Completed</span>
+            <p>May 2024</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Category</span>
+            <p>Digital electronics</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Tech used</span>
+            <div style="margin-top: 0.5rem">
+              <span class="tag">Logisim</span>
+              <span class="tag">Digital IC's and breadboard</span>
+            </div>
+          </div>
+
+          <!--
+          Add a GitHub link if relevant:
+        --></aside>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <p>© 2025 Ali Mohamed Aly Mahmoud</p>
+        <div class="footer-links">
+          <a href="https://github.com/Ali7699" target="_blank">GitHub</a>
+          <a
+            href="https://www.linkedin.com/in/ali-mahmoud-457881351/"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a href="mailto:ali.m.mahmoud48@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox">
+  <img id="lightbox-img" src="" alt="" />
+  <p class="lightbox-caption" id="lightbox-caption"></p>
+</div>
+
+<script>
+  const overlay = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbCaption = document.getElementById('lightbox-caption');
+
+  document.querySelectorAll('.gallery img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      lbImg.src = img.src;
+      lbCaption.textContent = img.dataset.caption || '';
+      overlay.classList.add('active');
+    });
+  });
+
+  overlay.addEventListener('click', () => overlay.classList.remove('active'));
+</script>
+  </body>
+</html>
