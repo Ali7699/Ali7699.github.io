@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bang Bang control — Ali Mohamed Aly Mahmoud</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">Ali Mohamed Aly Mahmoud</a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../my-work.html" class="active">My Work</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ─── Project Hero ───────────────────────────────────────── -->
+    <div class="container">
+      <div class="project-hero">
+        <a href="../my-work.html" class="back-link">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          All Works
+        </a>
+
+        <div class="project-meta-row">
+          <span class="mono">Hardware design</span>
+          <span class="mono">·</span>
+          <span class="mono">Dec 2025</span>
+        </div>
+
+        <h1>Bang Bang Temprature controller</h1>
+      </div>
+    </div>
+
+    <!-- ─── Project Body ────────────────────────────────────────── -->
+    <div class="container">
+      <div class="project-body">
+        <!-- Main content column -->
+        <article class="project-content">
+          <h2>Overview</h2>
+          <p>
+           This project implemented the Previously made RTD sensor to a bang bang control scenario. The plant chosen was a bowl of oil, and was to be dynamically heated using a soldering iron. 
+          </p>
+
+          <h2>Initial premise  </h2>
+          <p>
+            The premise of this project was to demonstrate correct bang control of a given plant, with a heating element and a cooling one. Now, It is difficult to directly interface heating to electrical control, because the heating element needs to be actuated by the mcu (arduino). So, I settled to use an old soldering iron to heat the plant, as it can be easily controlled with a relay.  
+          </p>
+          <p>
+            Next, was choice of media. The obvious choice of water had a few issues: it would short out the soldering iron, and it would make a very slow unobservable response time. So, I settled to use cooking oil as it will give us a nice visible response time and will have no risk of electrical damage in case of leakage. 
+          </p>
+          <h2>Implementation of plant </h2>
+          <p>
+            To safely connect the soldering iron to media, I needed a bowl that was cheap and modfible, but wont leak nor burn from the iron. So I settled for a plastic container, and I modified the side to attach the soldering iron. To never worry about the iron burning a hole in the plant, I used an old ceramic tile at the bottom of the container. 
+          </p>
+          <p>
+            Similarly, the fan was attached to the side of the container. The fan was driven with a lm9110H bridge: overkill for this purpose as directionality isn’t needed, but convenient. 
+          </p>
+        
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/lTNLeUdhOsQ"
+              title="Project demo video"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            >
+            </iframe>
+          </div>
+
+          <div class="report-callout">
+            <div>
+              <p class="report-callout-title">Demo Video</p>
+              <p>Watch the project in action on YouTube.</p>
+            </div>
+            <a
+              href="https://youtube.com/shorts/lTNLeUdhOsQ"
+              target="_blank"
+              class="report-callout-link"
+            >
+              Watch →
+            </a>
+          </div>
+          <h2>Results</h2>
+          <p>
+            The main issue I faced was the Relay coil energizing disrupting power flow to the h bridge and rtd, causing oscillation off mis measurment. essentially, the temprature would suddenly drop to 0 during transition, exciting the coil again, and so on. To address this, I implmented decoupling capcitors at the coil and the rtd. 
+          </p>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="project-sidebar">
+          <div class="project-sidebar-section">
+            <span class="mono">Completed</span>
+            <p>Dec 2026</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Category</span>
+            <p>Control</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Tech used</span>
+            <div style="margin-top: 0.5rem">
+              <span class="tag">Arduino IDE</span>
+              <span class="tag">5v relay, Lm9110</span>
+            </div>
+          </div>
+
+          <!--
+          Add a GitHub link if relevant:
+        --></aside>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <p>© 2025 Ali Mohamed Aly Mahmoud</p>
+        <div class="footer-links">
+          <a href="https://github.com/Ali7699" target="_blank">GitHub</a>
+          <a
+            href="https://www.linkedin.com/in/ali-mahmoud-457881351/"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a href="mailto:ali.m.mahmoud48@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox">
+      <img id="lightbox-img" src="" alt="" />
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+
+    <script>
+      const overlay = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lightbox-img");
+      const lbCaption = document.getElementById("lightbox-caption");
+
+      document.querySelectorAll(".gallery img").forEach((img) => {
+        img.style.cursor = "zoom-in";
+        img.addEventListener("click", () => {
+          lbImg.src = img.src;
+          lbCaption.textContent = img.dataset.caption || "";
+          overlay.classList.add("active");
+        });
+      });
+
+      overlay.addEventListener("click", () =>
+        overlay.classList.remove("active"),
+      );
+    </script>
+    <!-- Lightbox -->
+
+
+
+  </body>
+</html>
