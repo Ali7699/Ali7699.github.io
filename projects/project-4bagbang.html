@@ -51,7 +51,7 @@
         <article class="project-content">
           <h2>Overview</h2>
           <p>
-           This project implemented the Previously made RTD sensor to a bang bang control scenario. The plant chosen was a bowl of oil, and was to be dynamically heated using a soldering iron. 
+           This project implemented the previously made RTD sensor to a bang bang control scenario. The plant chosen was a bowl of oil, and was to be dynamically heated using a soldering iron. 
           </p>
 
           <h2>Initial premise  </h2>
@@ -63,7 +63,7 @@
           </p>
           <h2>Implementation of plant </h2>
           <p>
-            To safely connect the soldering iron to media, I needed a bowl that was cheap and modfible, but wont leak nor burn from the iron. So I settled for a plastic container, and I modified the side to attach the soldering iron. To never worry about the iron burning a hole in the plant, I used an old ceramic tile at the bottom of the container. 
+            To safely connect the soldering iron to media, I needed a bowl that was cheap and modifiable, but wont leak nor burn from the iron. So I settled for a plastic container, and I modified the side to attach the soldering iron. To never worry about the iron burning a hole in the plant, I used an old ceramic tile at the bottom of the container. 
           </p>
           <p>
             Similarly, the fan was attached to the side of the container. The fan was driven with a lm9110H bridge: overkill for this purpose as directionality isn’t needed, but convenient. 
@@ -103,7 +103,7 @@
           </div>
           <h2>Results</h2>
           <p>
-            The main issue I faced was the Relay coil energizing disrupting power flow to the h bridge and rtd, causing oscillation off mis measurment. essentially, the temprature would suddenly drop to 0 during transition, exciting the coil again, and so on. To address this, I implmented decoupling capcitors at the coil and the rtd. 
+            The main issue I faced was the Relay coil energizing disrupting power flow to the h bridge and rtd, causing oscillation off mis measurement. essentially, the temperature would suddenly drop to 0 during transition, exciting the coil again, and so on. To address this, I implemented decoupling capacitors at the coil and the rtd. 
           </p>
         </article>
 
