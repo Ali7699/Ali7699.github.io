@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lead lag compensator — Ali Mohamed Aly Mahmoud</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">Ali Mohamed Aly Mahmoud</a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../my-work.html" class="active">My Work</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ─── Project Hero ───────────────────────────────────────── -->
+    <div class="container">
+      <div class="project-hero">
+        <a href="../my-work.html" class="back-link">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          All Works
+        </a>
+
+        <div class="project-meta-row">
+          <span class="mono">Matlab Control</span>
+          <span class="mono">·</span>
+          <span class="mono">May 2026</span>
+        </div>
+
+        <h1>Lead lag compensator for DC motor</h1>
+      </div>
+    </div>
+    
+    <div class="report-callout">
+      <div>
+        <p class="report-callout-title">Project Report</p>
+        <p>Full documentation of the work done</p>
+      </div>
+      <a
+        href="../assets/leadlagcompensatorproject.pdf"
+        target="_blank"
+        class="report-callout-link"
+      >
+        View Report →
+      </a>
+    </div>
+
+    <!-- ─── Project Body ────────────────────────────────────────── -->
+    <div class="container">
+      <div class="project-body">
+        <!-- Main content column -->
+        <article class="project-content">
+          <h2>Overview</h2>
+          <p>
+            For a given dc motor with an quadrature encoder, the goal of this project was to control position by modelling the system and designing a lead lag compensator. The required response had a settling time under 2 seconds, an over shoot of under 5%, and a steady state error of under 3%.
+          </p>
+            <h2>System characteristic </h2>
+          <p>
+            The system involved a 12v dc motor with 34:1 gear ratio, that had a quadrature encoder. To drive it, a tbfng6612 h bridge was used. The system was to be controlled with an Arduino mega, using the Simulink add-on for Arduino.
+          </p>
+          <h2>System modelling</h2>
+          <p>
+            To model the system a block diagram was constructed in MATLAB that accurately fits our plant, the encoder changes where to be interpreted as an interrupt then counted to decrement position or increment it depending on the other quadrature pin. I constructed oscillation feedback, where the motor constantly 180 degrees and back. The idea was, to collect data about the response of the motor, then feed that response into MATLAB system identifier. 
+          </p>
+          <p>
+           In the video below, you can see the dc motor oscillating to collect data about its response. 
+          </p>
+          
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/mwzKLCEUjZE"
+              title="Project demo video"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            >
+            </iframe>
+          </div>
+
+          <div class="report-callout">
+            <div>
+              <p class="report-callout-title">Demo Video</p>
+              <p>Watch the project in action on YouTube.</p>
+            </div>
+            <a
+              href="https://youtu.be/mwzKLCEUjZE"
+              target="_blank"
+              class="report-callout-link"
+            >
+              Watch →
+            </a>
+          </div>
+            <p>
+           From the data we got, we were able to find the transfer function of our system using the matlab system identifier.  
+          </p>
+          
+          <p>
+           \[ \frac{\theta}{V} = \frac{.6411z}{z^2 - 1.525z + .5254} = \frac{.6411z}{(z - .999156)(z - .52584)} \]
+          </p>
+
+          <p>
+           This result is physically logical, as a dc motor's position is semi stable requiring a pole at 1, and a faster pole at .525 describes the mechanical transient. The matlab system identifier indicated a fit of over 95.83% to our collected data, a great result
+          </p>
+
+          <h2>Design of lead lag compensator</h2>
+          <p>
+            Designing the conmtroller then involved drawing the rootlocus with the desired pole locations, then following the design steps. Observe that prior to lead compensator, the poles locations did not fall on the rootlocus, but after they did. 
+          </p>
+         <div class="gallery">
+            <img
+              src="../assets/images/project5leadlag/g.jpg"
+              alt="circuit used"
+              data-caption="Rootlocus of open loop plant does not pass through desired poles "
+            />
+            <img
+              src="../assets/images/project5leadlag/cg.jpg"
+              alt="circuit used"
+              data-caption="Rootlocus of compensated plant correctly passes through"
+
+            />
+          </div>
+
+          
+          <h2>Results</h2>
+          <p>
+            After desiginng the lead lag compensator, the response met our requirments beautifully:
+          </p>
+
+          <div class="gallery">
+            <img
+              src="../assets/images/project5leadlag/fixedcomp.jpg"
+              alt="circuit used"
+              data-caption="Response of compensated plant "
+            />
+          </div>
+            <p>
+            Reflecting on this project, the main challenge I faced was in the system modelling, where it took a long time to achieve this strong fit. To do so, I had to tune the measuring setup for a bigger amplitude, faster freq, and other. This project also challeneged my intuition of digital control, as I recognized how quickly non idelities affect a real plant. For example, in theory the settling time to move 45 degrees and 180 should be identical, but this isnt true due to voltage saturation; the dc motor can only accept a maximum rated voltage. Moving forward, I would like to investigate modelling and applied control more. 
+          </p>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="project-sidebar">
+          <div class="project-sidebar-section">
+            <span class="mono">Completed</span>
+            <p>May 2026</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Category</span>
+            <p>Digital Control</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Tech used</span>
+            <div style="margin-top: 0.5rem">
+              <span class="tag">Matlab simulink</span>
+              <span class="tag">TB66FNG H bridge, DC motor</span>
+            </div>
+          </div>
+
+          <!--
+          Add a GitHub link if relevant:
+        --></aside>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <p>© 2025 Ali Mohamed Aly Mahmoud</p>
+        <div class="footer-links">
+          <a href="https://github.com/Ali7699" target="_blank">GitHub</a>
+          <a
+            href="https://www.linkedin.com/in/ali-mahmoud-457881351/"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a href="mailto:ali.m.mahmoud48@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox">
+      <img id="lightbox-img" src="" alt="" />
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+
+    <script>
+      const overlay = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lightbox-img");
+      const lbCaption = document.getElementById("lightbox-caption");
+
+      document.querySelectorAll(".gallery img").forEach((img) => {
+        img.style.cursor = "zoom-in";
+        img.addEventListener("click", () => {
+          lbImg.src = img.src;
+          lbCaption.textContent = img.dataset.caption || "";
+          overlay.classList.add("active");
+        });
+      });
+
+      overlay.addEventListener("click", () =>
+        overlay.classList.remove("active"),
+      );
+    </script>
+    <!-- Lightbox -->
+  </body>
+</html>
