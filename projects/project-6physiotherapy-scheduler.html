@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Physiotherapy Scheduler — Ali Mohamed Aly Mahmoud</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      /* ── Code block ─────────────────────────────────────────── */
+      .code-block {
+        background: #f4f3f1;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 1.5rem 1.75rem;
+        margin: 2.5rem 0;
+        overflow-x: auto;
+      }
+
+      .code-block pre {
+        font-family: 'DM Mono', monospace;
+        font-size: 0.78rem;
+        line-height: 1.85;
+        color: #2a2926;
+        white-space: pre;
+      }
+
+      .code-block-label {
+        font-family: 'DM Mono', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      /* ── DS table ───────────────────────────────────────────── */
+      .ds-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.875rem;
+        margin: 2rem 0;
+      }
+
+      .ds-table thead tr {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .ds-table th {
+        font-family: 'DM Mono', monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-align: left;
+        padding: 0 1rem 0.75rem 0;
+        font-weight: 400;
+      }
+
+      .ds-table td {
+        padding: 0.85rem 1rem 0.85rem 0;
+        color: var(--muted);
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+        line-height: 1.6;
+      }
+
+      .ds-table td:first-child {
+        color: var(--text);
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      .ds-table td .mono {
+        display: inline-block;
+        margin-top: 0.2rem;
+      }
+
+      /* ── State flow ─────────────────────────────────────────── */
+      .state-flow {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0;
+        margin: 2rem 0;
+        padding: 1.5rem 1.75rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+      }
+
+      .state-node {
+        display: flex;
+        align-items: center;
+        gap: 0;
+      }
+
+      .state-badge {
+        font-family: 'DM Mono', monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        padding: 0.3rem 0.7rem;
+        border-radius: 3px;
+        background: var(--tag-bg);
+        color: var(--accent-dim);
+        white-space: nowrap;
+      }
+
+      .state-badge.active { background: #1a1917; color: #f9f8f6; }
+      .state-badge.finish { background: #d1fae5; color: #065f46; }
+
+      .state-arrow {
+        font-family: 'DM Mono', monospace;
+        font-size: 0.75rem;
+        color: var(--muted);
+        padding: 0 0.5rem;
+        flex-shrink: 0;
+      }
+
+      /* ── Inline note ────────────────────────────────────────── */
+      .inline-note {
+        border-left: 2px solid var(--border);
+        padding: 0.75rem 1.25rem;
+        margin: 1.5rem 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">Ali Mohamed Aly Mahmoud</a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../my-work.html" class="active">My Work</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ─── Project Hero ───────────────────────────────────────── -->
+    <div class="container">
+      <div class="project-hero">
+        <a href="../my-work.html" class="back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          All Works
+        </a>
+
+        <div class="project-meta-row">
+          <span class="mono">C++ · Data Structures &amp; Algorithms</span>
+          <span class="mono">·</span>
+          <span class="mono">May 2025</span>
+        </div>
+
+        <h1>DataStructure Physiotherapy Center Scheduler</h1>
+      </div>
+    </div>
+
+    <!-- ─── GitHub Callout ─────────────────────────────────────── -->
+    <div class="report-callout" style="max-width: var(--max-w); margin: 0 auto; padding-left: var(--gap); padding-right: var(--gap); box-sizing: border-box;">
+      <div>
+        <p class="report-callout-title">Source Code</p>
+        <p>Full C++ implementation on GitHub</p>
+      </div>
+      <a href="https://github.com/Ali7699/DataStructure-Physiotherapy-scheduler.git" target="_blank" class="report-callout-link">
+        View on GitHub →
+      </a>
+    </div>
+
+    <!-- ─── Project Body ────────────────────────────────────────── -->
+    <div class="container">
+      <div class="project-body">
+
+        <!-- Main content -->
+        <article class="project-content">
+
+          <h2>Overview</h2>
+          <p>
+            A discrete-event simulation of a physiotherapy center, built as a Cairo University DSA course project.
+            The system manages patient flow across three treatment types — electro-therapy, ultrasound-therapy,
+            and gym exercises — while scheduling shared resources, enforcing appointment rules, and producing
+            a detailed statistics report at the end of each run.
+          </p>
+          <p>
+            The project was implemented entirely in C++ from scratch, with no use of the STL. All data
+            structures — stacks, queues, and priority queues — were built and owned by me, then
+            composed into the scheduler logic.
+          </p>
+
+          <h2>Patient lifecycle</h2>
+          <p>
+            Every patient moves through a strict set of states driven by timestep comparisons. Arrival
+            before appointment triggers the early list; arrival after incurs a waiting penalty before
+            the patient is re-inserted into the correct queue.
+          </p>
+
+          <div class="state-flow">
+            <div class="state-node">
+              <span class="state-badge">IDLE</span>
+              <span class="state-arrow">→</span>
+            </div>
+            <div class="state-node">
+              <span class="state-badge">ERLY</span>
+              <span class="state-arrow">→</span>
+            </div>
+            <div class="state-node">
+              <span class="state-badge active">WAIT</span>
+              <span class="state-arrow">→</span>
+            </div>
+            <div class="state-node">
+              <span class="state-badge active">SERV</span>
+              <span class="state-arrow">→</span>
+            </div>
+            <div class="state-node">
+              <span class="state-badge finish">FNSH</span>
+            </div>
+          </div>
+          <div class="state-flow" style="margin-top: -1.25rem; border-top: none; border-radius: 0 0 6px 6px; padding-top: 1rem;">
+            <div class="state-node">
+              <span class="state-badge">IDLE</span>
+              <span class="state-arrow">→</span>
+            </div>
+            <div class="state-node">
+              <span class="state-badge">LATE</span>
+              <span class="state-arrow">→ penalty wait →</span>
+            </div>
+            <div class="state-node">
+              <span class="state-badge active">WAIT</span>
+              <span class="state-arrow">→</span>
+            </div>
+            <div class="state-node">
+              <span class="state-badge active">SERV</span>
+              <span class="state-arrow">→</span>
+            </div>
+            <div class="state-node">
+              <span class="state-badge finish">FNSH</span>
+            </div>
+          </div>
+
+          <p>
+            A late patient with appointment time PT and arrival time VT incurs a penalty of
+            <code style="font-family:'DM Mono',monospace; font-size:0.85em;">(VT − PT) / 2</code> timesteps
+            before joining a waiting list, but is sorted in that list by <code style="font-family:'DM Mono',monospace; font-size:0.85em;">PT + penalty</code>
+            — preserving relative appointment order.
+          </p>
+
+          <h2>Data structure decisions</h2>
+          <p>
+            Each list in the system has a different access pattern, so each got a different structure.
+            The constraint was that everything had to derive from the hand-rolled Stack, Queue, or Priority Queue
+            base classes from the lab — no STL allowed.
+          </p>
+
+          <table class="ds-table">
+            <thead>
+              <tr>
+                <th>List</th>
+                <th>Structure</th>
+                <th>Reason</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ALL Patients</td>
+                <td><span class="mono">LinkedQueue</span></td>
+                <td>Input is sorted by arrival time; FIFO dequeue naturally processes patients in order.</td>
+              </tr>
+              <tr>
+                <td>Early Patients</td>
+                <td><span class="mono">priQueue (min-heap by PT)</span></td>
+                <td>Must always serve the earliest appointment first. Extended with a <code style="font-family:'DM Mono',monospace;font-size:0.85em;">Reschedule()</code> method that picks a random node and re-inserts with a new PT.</td>
+              </tr>
+              <tr>
+                <td>Late Patients</td>
+                <td><span class="mono">priQueue (min-heap by PT+penalty)</span></td>
+                <td>Same earliest-first priority, but effective priority is shifted by the late penalty.</td>
+              </tr>
+              <tr>
+                <td>E-Wait / U-Wait</td>
+                <td><span class="mono">EU_Waitlist (sorted LinkedQueue)</span></td>
+                <td>Sorted insertion by appointment time. Also exposes <code style="font-family:'DM Mono',monospace;font-size:0.85em;">calcTreatmentLatency()</code> for recovering patient routing.</td>
+              </tr>
+              <tr>
+                <td>X-Wait (gym)</td>
+                <td><span class="mono">X_Waitlist</span></td>
+                <td>Same sorted insertion, plus probabilistic cancellation — randomly picks and removes a patient if they meet the cancel criteria.</td>
+              </tr>
+              <tr>
+                <td>In-Treatment</td>
+                <td><span class="mono">priQueue (min-heap by finish time)</span></td>
+                <td>The patient whose treatment ends soonest always dequeues first, without scanning the whole list.</td>
+              </tr>
+              <tr>
+                <td>Finished Patients</td>
+                <td><span class="mono">ArrayStack</span></td>
+                <td>Output requires descending finish-time order. Since patients finish and are pushed onto the stack chronologically, popping naturally gives the most-recently-finished patient first.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Recovering vs. normal patients</h2>
+          <p>
+            Normal patients follow their treatment list in the exact input order. Recovering patients
+            can take treatments in any order, so each time one is about to join a waiting list, the
+            scheduler re-orders their treatment queue to minimise total waiting time.
+          </p>
+          <p>
+            The key insight: a recovering patient should start with the treatment whose waiting list
+            currently has the lowest total treatment backlog (treatment latency). The
+            <code style="font-family:'DM Mono',monospace;font-size:0.85em;">organizeTreatmentList()</code> function
+            computes this live at the moment of each transition.
+          </p>
+
+          <div class="code-block">
+            <div class="code-block-label">
+              <span>Scheduler.cpp — organizeTreatmentList()</span>
+              <span>C++</span>
+            </div>
+            <pre>void Scheduler::organizeTreatmentList(Patient* input)
+{
+    if (input->getType() == 0) return; // normal patient — skip
+
+    LinkedQueue&lt;Treatment*&gt;&amp; Temp = input->getTreatmentlist();
+    if (Temp.isEmpty()) return;
+
+    // Sample latency of each waiting list
+    struct Latency { int latency; char type; };
+    Latency arr[3] = {
+        { E_Waiting.calcTreatmentLatency('E'), 'E' },
+        { U_Waiting.calcTreatmentLatency('U'), 'U' },
+        { X_Waiting.calcTreatmentLatency('X'), 'X' }
+    };
+
+    // 3-element insertion sort (always exactly 3 types)
+    if (arr[0].latency > arr[1].latency) std::swap(arr[0], arr[1]);
+    if (arr[1].latency > arr[2].latency) std::swap(arr[1], arr[2]);
+    if (arr[0].latency > arr[1].latency) std::swap(arr[0], arr[1]);
+
+    // Drain and re-enqueue in latency order
+    int count = Temp.count();
+    Treatment* treatments[3] = { nullptr, nullptr, nullptr };
+    for (int i = 0; i &lt; count; ++i) Temp.dequeue(treatments[i]);
+
+    for (int i = 0; i &lt; 3; ++i)
+        for (int j = 0; j &lt; count; ++j)
+            if (treatments[j] &amp;&amp; treatments[j]->getType() == arr[i].type) {
+                Temp.enqueue(treatments[j]);
+                treatments[j] = nullptr;
+                break;
+            }
+}</pre>
+          </div>
+
+          <h2>Resource management</h2>
+          <p>
+            Electro and ultrasound devices are simple: one patient per device at a time, managed as a
+            queue of available resources. Gym rooms are more involved — each room has a capacity, and
+            multiple patients can share it simultaneously. A full room is removed from the available list
+            and only returns when its first occupant leaves.
+          </p>
+          <p>
+            The <code style="font-family:'DM Mono',monospace;font-size:0.85em;">Treatment</code> base class
+            handles this through two pure virtual methods: <code style="font-family:'DM Mono',monospace;font-size:0.85em;">canAssign()</code>
+            checks resource availability, and <code style="font-family:'DM Mono',monospace;font-size:0.85em;">moveToWait()</code>
+            dispatches the patient to the correct waiting list via the scheduler. Deriving
+            <code style="font-family:'DM Mono',monospace;font-size:0.85em;">ETherapy</code>,
+            <code style="font-family:'DM Mono',monospace;font-size:0.85em;">UTherapy</code>, and
+            <code style="font-family:'DM Mono',monospace;font-size:0.85em;">XTherapy</code> from this base keeps
+            the scheduler's assignment loop uniform across all three treatment types.
+          </p>
+
+          <h2>Probabilistic events</h2>
+          <p>
+            Two random events fire each timestep based on configurable probabilities loaded from the input file:
+          </p>
+          <ul>
+            <li><strong>Cancellation (Pcancel):</strong> a random patient in the X-therapy waiting list, whose gym session is their last remaining treatment, may cancel and move directly to finished.</li>
+            <li><strong>Rescheduling (Presc):</strong> a random patient in the early list may receive a new, later appointment time and be re-inserted into the early priority queue at their new position.</li>
+          </ul>
+          <div class="inline-note">
+            Both operations target a <em>random</em> node in their list, not necessarily the head — requiring
+            direct node traversal of the underlying linked structure without copying the patient object.
+          </div>
+
+          <h2>Output and statistics</h2>
+          <p>
+            At simulation end, the program produces an output file listing every patient sorted by finish time
+            in descending order, followed by aggregate statistics: average waiting and treatment times
+            broken down by patient type, cancellation and rescheduling percentages, and the average late penalty.
+            The <code style="font-family:'DM Mono',monospace;font-size:0.85em;">ArrayStack</code> of finished patients
+            makes this ordering free — no post-sort needed.
+          </p>
+          <p>
+            The program supports two modes: interactive (pauses each timestep and prints all list states to console)
+            and silent (runs to completion and writes only the output file).
+          </p>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="project-sidebar">
+          <div class="project-sidebar-section">
+            <span class="mono">Completed</span>
+            <p>May 2025</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Category</span>
+            <p>Data Structures &amp; Algorithms</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Course</span>
+            <p>CMP S103 — Cairo University, Faculty of Engineering</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Tech used</span>
+            <div style="margin-top: 0.5rem;">
+              <span class="tag">C++</span>
+              <span class="tag">OOP</span>
+              <span class="tag">Linked Queue</span>
+              <span class="tag">Priority Queue</span>
+              <span class="tag">Array Stack</span>
+              <span class="tag">Discrete-event simulation</span>
+            </div>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Key concepts</span>
+            <div style="margin-top: 0.5rem;">
+              <span class="tag">Polymorphism</span>
+              <span class="tag">Pointer ownership</span>
+              <span class="tag">Sorted insertion</span>
+              <span class="tag">Treatment latency</span>
+            </div>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Source</span>
+            <p style="margin-top: 0.4rem;">
+              <a href="https://github.com/Ali7699/DataStructure-Physiotherapy-scheduler.git" target="_blank"
+                style="text-decoration: underline; text-underline-offset: 3px; font-size: 0.9rem; transition: opacity 0.2s;"
+                onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
+                GitHub →
+              </a>
+            </p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <p>© 2025 Ali Mohamed Aly Mahmoud</p>
+        <div class="footer-links">
+          <a href="https://github.com/Ali7699" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/ali-mahmoud-457881351/" target="_blank">LinkedIn</a>
+          <a href="mailto:ali.m.mahmoud48@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>
