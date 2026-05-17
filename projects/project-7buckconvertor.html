@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buck power convertor — Ali Mohamed Aly Mahmoud</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">Ali Mohamed Aly Mahmoud</a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../my-work.html" class="active">My Work</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ─── Project Hero ───────────────────────────────────────── -->
+    <div class="container">
+      <div class="project-hero">
+        <a href="../my-work.html" class="back-link">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          All Works
+        </a>
+
+        <div class="project-meta-row">
+          <span class="mono">Hardware design</span>
+          <span class="mono">·</span>
+          <span class="mono">April 2026</span>
+        </div>
+
+        <h1>Buck power convertor</h1>
+      </div>
+    </div>
+
+    <!-- ─── Project Body ────────────────────────────────────────── -->
+    <div class="container">
+      <div class="project-body">
+        <!-- Main content column -->
+        <article class="project-content">
+          <h2>Overview</h2>
+          <p>
+           In this project I implmented a buck power module to output 5v using the lm2575 ic
+          </p>
+
+          <h2>Circuit design </h2>
+          <p>
+             The circuit design followed the data sheet specified components. The main constrain on inductor value, was availability. Now the data sheet specified an inductor of value 330uf, And available was one of value of 470uf which is bigger and therefore acceptable. 
+          </p>
+          <div class="gallery">
+            <img
+              src="../assets/images/project7buck/circuit.jpg"
+              alt="circuit used"
+              data-caption="Circuit specified by datasheet, only diffrence is using a fixed output Lm2575 5v ic, so no resistor divider was necessary "
+            />
+        
+          </div>
+        
+          <h2>Implementation of circuit </h2>
+          <p>
+            The circuit was soldered unto a perfboard. the main constraint to consider was thhat the diode, input ground loop had to be as short as possible to minimize emi and and limit ourput voltage ripple. Additionally, a 1 A fuse was added to protect the compenents from over load. 
+          </p>
+        
+          <h2>Results</h2>
+
+          <div class="gallery">
+            <img
+              src="../assets/images/project7buck/soldered back.jpeg"
+              alt="circuit used"
+              data-caption="Circuit from behind after soldering"
+            />
+            <img
+              src="../assets/images/project7buck/5voutput.jpeg"
+              alt="circuit used"
+              data-caption="5v output measured using multimeter on a 12v input"
+            />
+            <img
+              src="../assets/images/project7buck/WhatsApp Image 2026-05-02 at 9.08.46 PM.jpeg"
+              alt="circuit used"
+              data-caption="Using ocillscope ac coupling, a ripple of 11mv on the ouput was measured, which is under 1 percent, a great result. "
+            />
+        
+          </div>
+          <p>
+            In the end, the buck module worked as designed, outputing 5v on any higher voltage input up to 40v. The process was simple and issue free to implement. For future projects, Id like to implment an SMPS. 
+          </p>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="project-sidebar">
+          <div class="project-sidebar-section">
+            <span class="mono">Completed</span>
+            <p>April 2026</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Category</span>
+            <p>Power electronics</p>
+          </div>
+
+          <div class="project-sidebar-section">
+            <span class="mono">Tech used</span>
+            <div style="margin-top: 0.5rem">
+              <span class="tag">Lm2575</span>
+              <span class="tag">Oscillscope</span>
+            </div>
+          </div>
+
+          <!--
+          Add a GitHub link if relevant:
+        --></aside>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <p>© 2025 Ali Mohamed Aly Mahmoud</p>
+        <div class="footer-links">
+          <a href="https://github.com/Ali7699" target="_blank">GitHub</a>
+          <a
+            href="https://www.linkedin.com/in/ali-mahmoud-457881351/"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a href="mailto:ali.m.mahmoud48@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox">
+      <img id="lightbox-img" src="" alt="" />
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+
+    <script>
+      const overlay = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lightbox-img");
+      const lbCaption = document.getElementById("lightbox-caption");
+
+      document.querySelectorAll(".gallery img").forEach((img) => {
+        img.style.cursor = "zoom-in";
+        img.addEventListener("click", () => {
+          lbImg.src = img.src;
+          lbCaption.textContent = img.dataset.caption || "";
+          overlay.classList.add("active");
+        });
+      });
+
+      overlay.addEventListener("click", () =>
+        overlay.classList.remove("active"),
+      );
+    </script>
+    <!-- Lightbox -->
+
+
+
+  </body>
+</html>
